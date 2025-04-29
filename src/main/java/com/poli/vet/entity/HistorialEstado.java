@@ -13,10 +13,14 @@ import java.time.LocalDate;
 public class HistorialEstado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "historial_estado_id")
     private Integer id;
     
     @Column(name = "fecha_cambio", nullable = false)
     private LocalDate fechaCambio;
+
+    @Column(name = "comentario", length = 200)
+    private String comentarios;
     
     @ManyToOne
     @JoinColumn(name = "empleado_id", nullable = false)

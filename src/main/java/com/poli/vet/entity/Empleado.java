@@ -13,13 +13,17 @@ import java.util.List;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "empleado_id")
     private Integer id;
     
     @Column(nullable = false, length = 100)
     private String nombre;
     
     @Column(nullable = false, length = 50)
-    private String puesto;
+    private String rol;
+
+    @Column(nullable = false, length = 50)
+    private String horario;
     
     @OneToMany(mappedBy = "empleado")
     private List<Aplicacion> aplicaciones;

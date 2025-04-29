@@ -14,20 +14,21 @@ import java.util.List;
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "mascota_id")
     private Integer id;
     
     @Column(nullable = false, length = 50)
     private String nombre;
     
     @Column(nullable = false, length = 30)
-    private String tipo;
+    private String especie;
     
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
     
     @ManyToOne
-    @JoinColumn(name = "dueno_id", nullable = false)
-    private Cliente dueno;
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
     
     @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
     private List<Aplicacion> aplicaciones;

@@ -13,6 +13,7 @@ import java.util.List;
 public class Medicamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "medicamento_id")
     private Integer id;
     
     @Column(nullable = false, length = 100)

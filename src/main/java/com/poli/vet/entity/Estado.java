@@ -13,6 +13,7 @@ import java.util.List;
 public class Estado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "estado_id")
     private Integer id;
     
     @Column(nullable = false, length = 50)

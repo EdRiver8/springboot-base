@@ -12,13 +12,14 @@ import java.time.LocalDate;
 public class Aplicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "aplicacion_id")
     private Integer id;
     
-    @Column(nullable = false)
+    @Column(name = "fecha_aplicacion", nullable = false)
     private LocalDate fecha;
-    
-    @Column(nullable = false)
-    private Integer cantidad;
+
+    @Column(name = "comentario", length = 200)
+    private String comentarios;
     
     @ManyToOne
     @JoinColumn(name = "medicamento_id", nullable = false)
