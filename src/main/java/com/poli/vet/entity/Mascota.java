@@ -1,5 +1,7 @@
 package com.poli.vet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,14 +27,19 @@ public class Mascota {
     
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
+
+    @Column(nullable = false, name = "cliente_id", insertable = false, updatable = false)
+    private Integer clienteId;
     
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
-    private Cliente cliente;
+//    @ManyToOne
+//    @JsonBackReference
+//    @JsonIgnore
+//    @JoinColumn(name = "cliente_id", nullable = false)
+//    private Cliente cliente;
     
-    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
-    private List<Aplicacion> aplicaciones;
-    
-    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
-    private List<HistorialEstado> historialEstados;
+//    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
+//    private List<Aplicacion> aplicaciones;
+//
+//    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
+//    private List<HistorialEstado> historialEstados;
 }

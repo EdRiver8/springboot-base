@@ -1,5 +1,7 @@
 package com.poli.vet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +30,8 @@ public class Cliente {
     @Column(length = 200)
     private String direccion;
     
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @JsonManagedReference
+    @Transient
     private List<Mascota> mascotas;
 }
